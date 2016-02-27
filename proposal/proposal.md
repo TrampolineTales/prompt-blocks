@@ -36,20 +36,20 @@ I've frequently been stumped about what the next step is for creative projects I
 
 ## ERDs
 
-![](MVP.png)
+![](images/MVP.png)
 ERD of MVP database
 
-![](wdi-project-2.png)
+![](images/wdi-project-2.png)
 ERD of full version database
 
 ## Wireframes
 
-![](wf-main-page.jpg)
+![](images/wf-main-page.jpg)
 
-![](wf-top-nav.jpg)
+![](images/wf-top-nav.jpg)
 
-![](wf-PB-MVP.jpg)
+![](images/wf-PB-MVP.jpg)
 
-![](wf-PB.jpg)
+![](images/wf-PB.jpg)
 
-![](wf-PB-page.jpg)
+![](images/wf-PB-page.jpg)
