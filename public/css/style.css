@@ -1,0 +1,14 @@
+.topnav {
+  background-color: black;
+}
+
+.topnav-links {
+  display: inline-block;
+  position: absolute;
+  right: 0px;
+}
+
+.logo-text {
+  display: inline-block;
+  color: white;
+}
