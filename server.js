@@ -55,6 +55,10 @@ app.delete('/logout', function(req, res) {
   })
 })
 
+app.get('/submit', function(req, res) {
+  res.render('submit.html.ejs', { user: req.session.user });
+});
+
 app.get('/signup', function(req, res) {
   res.render('signup.html.ejs', { user: req.session.user });
 });
