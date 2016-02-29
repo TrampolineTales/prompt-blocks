@@ -62,6 +62,29 @@ function createUser(req, res, next) {
   }
 }
 
+function deleteUser(req, res, next) {
+  if (req.session.user) {
+    pg.connect(process.env.CONNECTION_STRING, function(err, client, done) {
+      if (err) {
+        done();
+        console.log(err);
+        return res.status(500).json({success: false, data: err});
+      }
+
+      console.log(req.params.id);
+      var query1 = client.query('DELETE FROM promptblocks WHERE id = $1;', [req.params.id], function(err, results) {
+        if (err) {
+          return console.error('error running query', err)
+        }
+        res.rows = results.rows;
+        next();
+      });
+    });
+  } else {
+    res.status(301).json({success: false, data: 'Not logged as the submitter!'});
+  }
+}
+
 function createPromptBlock(req, res, next) {
   if (req.session.user) {
     pg.connect(process.env.CONNECTION_STRING, function(err, client, done) {
@@ -139,7 +162,7 @@ function getPromptBlock(req, res, next) {
       return res.status(500).json({success: false, data: err});
     }
 
-    var query = client.query('SELECT promptblocks.id, promptblocks.title, promptblocks.description, users.name FROM xref_users_promptblocks LEFT JOIN users on xref_users_promptblocks.user_id = users.id LEFT JOIN promptblocks on xref_users_promptblocks.promptblock_id = promptblocks.id WHERE promptblocks.id = $1 ORDER BY promptblocks.id desc;', [req.params.id], function(err, results) {
+    var query = client.query('SELECT promptblocks.id, promptblocks.title, promptblocks.description, users.name, users.id as u_id FROM xref_users_promptblocks LEFT JOIN users on xref_users_promptblocks.user_id = users.id LEFT JOIN promptblocks on xref_users_promptblocks.promptblock_id = promptblocks.id WHERE promptblocks.id = $1 ORDER BY promptblocks.id desc;', [req.params.id], function(err, results) {
       done();
       if (err) {
         return console.error('error running query', err);
@@ -157,3 +180,4 @@ module.exports.createPromptBlock = createPromptBlock;
 module.exports.getPromptBlocks = getPromptBlocks;
 module.exports.getUserPromptBlocks = getUserPromptBlocks;
 module.exports.getPromptBlock = getPromptBlock;
+module.exports.deleteUser = deleteUser;

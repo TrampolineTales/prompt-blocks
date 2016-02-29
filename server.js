@@ -51,9 +51,13 @@ app.post('/login', db.loginUser, function(req, res) {
 
 app.delete('/logout', function(req, res) {
   req.session.destroy(function(err) {
-    res.redirect('/')
-  })
-})
+    res.redirect('/');
+  });
+});
+
+app.delete('/pb/:id', db.deleteUser, function(req, res) {
+  res.redirect('/');
+});
 
 app.get('/submit', function(req, res) {
   if (req.session.user) {

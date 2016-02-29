@@ -13,5 +13,10 @@
         <% include ./partials/promptblock %>
       <% } %>
     </div>
+    <% if ((user) && (user.id == data[0].u_id)) { %>
+      <form action= <%= "/pb/" + data[0].id + "?_method=DELETE" %> method="post" >
+        <input type="submit" value="Delete">
+      </form>
+    <% } %>
   </body>
 </html>
