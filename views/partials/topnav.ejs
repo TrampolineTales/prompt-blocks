@@ -3,8 +3,13 @@
   <div class="topnav-links">
     <% if (user) { %>
       <a href= <%= "users/" + user.name %> ><%= user.name %></a>
+      |
+      <form action="/logout?_method=DELETE" method="post">
+        <button>Log Out</button>
+      </form>
     <% } else { %>
       <a href="/login">Log In</a>
+      |
       <a href="/signup">Sign Up</a>
     <% } %>
   </div>

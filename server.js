@@ -22,7 +22,7 @@ app.set('view engine', 'ejs');
 app.use(morgan('short'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-console.log();
+app.use(methodOverride('_method'));
 app.use(session({
   store: new pgSession({
     pg: pg,
@@ -46,9 +46,14 @@ app.get('/login', function(req, res) {
 
 app.post('/login', db.loginUser, function(req, res) {
   req.session.user = res.rows;
-  console.log(res.rows);
   res.redirect('/');
 });
+
+app.delete('/logout', function(req, res) {
+  req.session.destroy(function(err) {
+    res.redirect('/')
+  })
+})
 
 app.get('/signup', function(req, res) {
   res.render('signup.html.ejs', { user: req.session.user });

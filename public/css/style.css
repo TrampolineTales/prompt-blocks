@@ -6,9 +6,14 @@
   display: inline-block;
   position: absolute;
   right: 0px;
+  color: white;
 }
 
 .logo-text {
   display: inline-block;
   color: white;
+}
+
+form, button {
+  display: inline-block;
 }
