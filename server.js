@@ -36,8 +36,8 @@ app.use(session({
 //////////////////////////
 
 ////Declaring Routes////
-app.get('/', function(req, res) {
-  res.render('index.html.ejs', { user: req.session.user });
+app.get('/', db.getPromptBlocks, function(req, res) {
+  res.render('index.html.ejs', { user: req.session.user, data: res.rows });
 });
 
 app.get('/login', function(req, res) {
@@ -56,7 +56,15 @@ app.delete('/logout', function(req, res) {
 })
 
 app.get('/submit', function(req, res) {
-  res.render('submit.html.ejs', { user: req.session.user });
+  if (req.session.user) {
+    res.render('submit.html.ejs', { user: req.session.user });
+  } else {
+    res.status(301).json({success: false, data: 'Not logged in!'})
+  }
+});
+
+app.post('/submit', db.createPromptBlock, function(req, res) {
+  res.redirect('/'); //change to /pb/:id once implemented
 });
 
 app.get('/signup', function(req, res) {

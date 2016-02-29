@@ -1,6 +1,7 @@
 DROP TABLE IF EXISTS users CASCADE;
 DROP TABLE IF EXISTS promptblocks CASCADE;
 DROP TABLE IF EXISTS xref_users_promptblocks CASCADE;
+DROP TABLE IF EXISTS session CASCADE;
 
 CREATE TABLE users (
        id SERIAL UNIQUE PRIMARY KEY,
@@ -11,8 +12,7 @@ CREATE TABLE users (
 CREATE TABLE promptblocks (
        id SERIAL UNIQUE PRIMARY KEY,
        title VARCHAR(140),
-       description VARCHAR(500),
-       submitter_id INT REFERENCES users(id)
+       description VARCHAR(500)
 );
 
 CREATE TABLE xref_users_promptblocks (
