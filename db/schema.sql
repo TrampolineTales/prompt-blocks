@@ -20,3 +20,13 @@ CREATE TABLE xref_users_promptblocks (
   promptblock_id INT REFERENCES promptblocks(id) ON DELETE CASCADE,
   PRIMARY KEY (user_id, promptblock_id)
 );
+
+----taken from connect-pg-simple----
+CREATE TABLE "session" (
+  "sid" varchar NOT NULL COLLATE "default",
+	"sess" json NOT NULL,
+	"expire" timestamp(6) NOT NULL
+)
+WITH (OIDS=FALSE);
+ALTER TABLE "session" ADD CONSTRAINT "session_pkey" PRIMARY KEY ("sid") NOT DEFERRABLE INITIALLY IMMEDIATE;
+------------------------------------

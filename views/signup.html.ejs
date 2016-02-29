@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
+    <% include ./partials/head %>
     <title>PromptBlocks - Sign up!</title>
   </head>
   <body>
-    <form action="index.html" method="post">
+    <% include ./partials/topnav %>
+    <form action="/signup" method="post">
       <label for="username">Username:</label>
       <input type="text" name="username">
 
