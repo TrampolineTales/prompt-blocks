@@ -64,7 +64,15 @@ app.get('/submit', function(req, res) {
 });
 
 app.post('/submit', db.createPromptBlock, function(req, res) {
-  res.redirect('/'); //change to /pb/:id once implemented
+  res.redirect('/pb/' + res.id);
+});
+
+app.get('/users/:name', db.getUserPromptBlocks, function(req, res) {
+  res.render('user_page.html.ejs', { user: req.session.user, data: res.rows });
+});
+
+app.get('/pb/:id', db.getPromptBlock, function(req, res) {
+  res.render('pb_page.html.ejs', { user: req.session.user, data: res.rows });
 });
 
 app.get('/signup', function(req, res) {

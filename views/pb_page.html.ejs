@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include ./partials/head %>
+    <title>PromptBlocks - <%= data[0].title %></title>
+    <script src="../js/jquery-2.0-min.js"></script>
+    <script src="../js/index.js"></script>
+  </head>
+  <body>
+      <% include ./partials/topnav %>
+    <div class="promptblock-container">
+      <% for (var i = 0; i < data.length; i++) { %>
+        <% include ./partials/promptblock %>
+      <% } %>
+    </div>
+  </body>
+</html>
