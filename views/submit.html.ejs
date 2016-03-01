@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include ./partials/head %>
+    <title>Submit a PromptBlock!</title>
+    <script src="js/jquery-2.0-min.js"></script>
+    <script src="js/submit.js"></script>
+  </head>
+  <body>
+    <% include ./partials/topnav %>
+    <form action="/submit" method="post">
+      <label id="title-label" for="title">Title (0/140):</label>
+      <input id="title-input" type="text" name="title">
+
+      <label id="description-label" for="description">Description (0/500):</label>
+      <input id="description-input" type="text" name="description">
+
+      <input type="submit" value="Submit">
+    </form>
+  </body>
+</html>

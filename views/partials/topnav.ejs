@@ -1,0 +1,25 @@
+<div class="topnav">
+  <div class="logo-text topnav-text">PromptBlocks</div>
+  <div class="topnav-links">
+    <% if (user) { %>
+      <% if (user.name[user.name.length - 1] == 's') { %>
+      <a class="topnav-text" href= <%= "users/" + user.name %> ><%= user.name %>' Profile</a>
+      <% } else { %>
+      <a class="topnav-text" href= <%= "users/" + user.name %> ><%= user.name %>'s Profile</a>
+      <% } %>
+      <form action="/submit" method="get">
+        <button>Submit a PromptBlock!</button>
+      </form>
+      <form action="/logout?_method=DELETE" method="post">
+        <button>Log Out</button>
+      </form>
+    <% } else { %>
+      <form action="/login" method="get">
+        <button>Log In</button>
+      </form>
+      <form action="/signup" method="get">
+        <button>Sign Up</button>
+      </form>
+    <% } %>
+  </div>
+</div>

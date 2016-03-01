@@ -1,0 +1,67 @@
+body {
+  background-color: #C4C4E0;
+}
+
+.topnav {
+  background-color: black;
+  height: 24px;
+}
+
+.topnav-text {
+  color: white;
+  padding: 0px 20px;
+}
+
+.topnav-links {
+  display: inline-block;
+  position: absolute;
+  right: 0px;
+}
+
+.logo-text {
+  font-size: 21px;
+  display: inline-block;
+  color: black;
+  background-color: grey;
+  height: 24px;
+}
+
+#title-input, #description-input {
+  width: 700px;
+  display: block;
+}
+
+ #description-input {
+   padding-bottom: 200px;
+ }
+
+.topnav-links form, .topnav-links button {
+  display: inline-block;
+}
+
+.promptblock-container {
+	margin: 0 auto;
+	width: 750px;
+}
+
+.promptblock {
+  position: relative;
+  font-size: 16px;
+  display: inline-block;
+  float: left;
+  border: 1px solid black;
+  background-color: grey;
+  color: black;
+  width: 248px;
+  height: 120px;
+}
+
+.promptblock a {
+  color: black;
+}
+
+.promptblock-username {
+  position: absolute;
+  right: 0px;
+  bottom: 0px;
+}
